@@ -17,7 +17,7 @@
       <tr>
         <td><%= cat.name %></td>
         <td><%= cat.description %></td>
-        <td><%= cat.owner_id %></td>
+        <td><%= cat.user_id %></td>
         <td><%= link_to 'Show', cat %></td>
         <td><%= link_to 'Edit', edit_cat_path(cat) %></td>
         <td><%= link_to 'Destroy', cat, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -7,7 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<div id="header" style="background-color: black; color:white!important;padding: 15px;">
+  <h1 style="display:inline; text-decoration: none;">
+    <%= link_to "Herding Cats!", cats_path %>
+  </h1>
+  <div style="float: right;">
+  <% if current_user.present? %>
+    <span><%= current_user.email %>&nbsp;|&nbsp;</span>
+    <span><%= link_to "Sign out", destroy_user_session_url, method: :delete %></span>
+  <% else %>
+    <span><%= link_to "Sign up", new_user_registration_url %>&nbsp;|&nbsp;</span>
+    <span><%= link_to "Log in", new_user_session_url %></span>
+  <% end %>
+  </div>
+</div>
 <%= yield %>
 
 </body>

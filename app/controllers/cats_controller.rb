@@ -1,4 +1,5 @@
 class CatsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :update, :edit, :destroy, :create]
   before_action :set_cat, only: [:show, :edit, :update, :destroy]
 
   # GET /cats
@@ -24,7 +25,7 @@ class CatsController < ApplicationController
   # POST /cats
   # POST /cats.json
   def create
-    @cat = Cat.create(cat_params)
+    @cat = Cat.create!(cat_params)
     redirect_to @cat, notice: 'Cat was successfully created.'
   rescue
     render :new

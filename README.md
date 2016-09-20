@@ -99,7 +99,7 @@ end
 The next step is to display the owner's name. There are a couple answers.
 
 * __Average:__ calling `cat.owner.name`
-* __Good:__ In the cats controller index action, revising the `@cats` variable declaration to be `Cats.includes(:owner).all` so that we don't have N+1 queries.
+* __Best:__ Doing the above but also in the cats controller index action, revising the `@cats` variable declaration to be `Cats.includes(:owner).all` so that we don't have N+1 queries.
 
 ---
 

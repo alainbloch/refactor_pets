@@ -16,7 +16,7 @@ This test covers many areas:
 * ..and more
 
 ## Rating
-A good engineer should be able to get through most of the problems in a timely manner while demonstrating the areas listed above. The solutions should only be seen a guidelines to evaluating the answer and not taken strictly. It is not necessarily how many problems they solve but the quality of the solutions. Sometimes a quality solution can take more time (especially if they start testing).
+A good engineer should be able to get through most of the problems in a timely manner while demonstrating the areas listed above. The solutions should only be seen as guidelines to evaluating the answer and not taken strictly. It is not necessarily how many problems they solve but the quality of the solutions. Sometimes a quality solution can take more time (especially if they start testing).
 
 As the interviewer, you should take care not to give any additional technical instruction or insight apart from what is needed to determine the interviewee's skill and comprehension. You can always give insight after solution has been achieved or if the candidate is stuck on the problem.
 

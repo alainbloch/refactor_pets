@@ -20,7 +20,7 @@ A good engineer should be able to get through most of the problems in a timely m
 
 As the interviewer, you should take care not to give any additional technical instruction or insight apart from what is needed to determine the interviewee's skill and comprehension. You can always give insight after solution has been achieved or if the candidate is stuck on the problem.
 
-There is one particular area that I feel that can easily determine if the candidate is good: __does the candidate create and run tests?!__ Most of the initial problems can be discovered if the candidate starts first by running tests. A good analogy to a candidate running tests is [the golden snitch in quidditch](http://harrypotter.wikia.com/wiki/Golden_Snitch) - it earns the candidate a lot of merit.
+There is one particular area that I feel that can easily determine if the candidate is good: __does the candidate create and run tests?!__ Most of the initial problems can be discovered if the candidate first starts by running tests. A good analogy to a candidate running tests is [the golden snitch in quidditch](http://harrypotter.wikia.com/wiki/Golden_Snitch); it earns the candidate a lot of merit.
 
 ### Synopsis
 The interviewee is given an application that was abandoned by the previous developer. The client is desperate and doesn't know anything technically. The application allows for users to list their cats.

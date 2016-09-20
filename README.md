@@ -33,7 +33,7 @@ Listed below is all the problems that the interviewees should be given in order.
 _There is an error when trying to display the new cat form!_
 
 ####Solution
-The cat form is trying to display _desc_ instead of _description_. The interviewer should simply change the form to use _description_ instead of _desc_.
+The cat form is trying to display `desc` instead of `description`. The interviewer should simply change the form to use `description` instead of `desc`.
 
 ---
 

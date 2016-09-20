@@ -16,7 +16,7 @@ This test covers many areas:
 * ..and more
 
 ## Rating
-A good engineer should be able to get through most of the problems in a timely manner while demonstrating the areas listed above. The solutions should only be seen a guidelines to evaluating the answer and not taken strictly. It is not necessarily how many problems they solve but the quality of the solutions. Sometimes a quality solution can take more time (especially if they start testing).
+A good engineer should be able to get through most of the problems in a timely manner while demonstrating the areas listed above. The solutions should only be seen as guidelines to evaluating the answer and not taken strictly. It is not necessarily how many problems they solve but the quality of the solutions. Sometimes a quality solution can take more time (especially if they start testing).
 
 As the interviewer, you should take care not to give any additional technical instruction or insight apart from what is needed to determine the interviewee's skill and comprehension. You can always give insight after solution has been achieved or if the candidate is stuck on the problem.
 
@@ -41,11 +41,11 @@ The cat form is trying to display _desc_ instead of _description_. The interview
 _There is an error when creating new cats!_
 
 ####Solution
-The cat form is using owner_id instead of user_id column shown in the schema. There are two solutions to this and one is preferred over the other.
+The cat form is using `owner_id` instead of `user_id` column shown in the schema. There are two solutions to this and one is preferred over the other.
 
 * __Average:__ Changing all instances of `owner_id` to be `user_id`.
-* __Best:__ Migrate the database to use owner_id instead of user_id and change the Cat class to have `belongs_to :owner, class_name: 'User'`
-Why is this the best way to do it? Because the rest of the app already is using owner_id and owner is a more descriptive relationship between the user and the cat classes.
+* __Best:__ Migrate the database to use `owner_id` instead of `user_id` and change the Cat class to have `belongs_to :owner, class_name: 'User'`
+Why is this the best way to do it? Because the rest of the app already is using `owner_id` and __owner__ is a more descriptive relationship between the user and the cat classes.
 
 ---
 
@@ -69,6 +69,16 @@ _A cat can be created without a name or description!_
 ####Solution
 Validation needs to be added to the cat model.
 
+* __Worst:__ Multi-line validations or hand-rolled validations:
+``` ruby
+validates_presence_of :description
+validates_presence_of :owner
+validate :needs_desc_and_owner
+
+def needs_desc_and_owner
+  ...
+end
+```
 * __Average:__ Using the old way to do validation: `validates_presence_of :description, :owner, :name`
 * __Good:__  Using the new way to do validation: `validate :description, :owner, :name, presence: true`
 
@@ -98,7 +108,7 @@ end
 ####Solution: Part 2
 The next step is to display the owner's name. There are a couple answers.
 
-* __Average:__ calling `cat.owner.name`
+* __Average:__ calling `cat.owner.name` instead of `cat.owner.id`
 * __Best:__ Doing the above but also in the cats controller index action, revising the `@cats` variable declaration to be `Cats.includes(:owner).all` so that we don't have N+1 queries.
 
 ---

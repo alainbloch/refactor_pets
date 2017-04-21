@@ -32,7 +32,7 @@ Listed below is all the problems that the interviewees should be given in order.
 ### Problem 1
 _There is an error when trying to display the new cat form!_
 
-####Solution
+#### Solution
 The cat form is trying to display `desc` instead of `description`. The interviewer should simply change the form to use `description` instead of `desc`.
 
 ---
@@ -40,7 +40,7 @@ The cat form is trying to display `desc` instead of `description`. The interview
 ### Problem 2
 _There is an error when creating new cats!_
 
-####Solution
+#### Solution
 The cat form is using `owner_id` instead of `user_id` column shown in the schema. There are two solutions to this and one is preferred over the other.
 
 * __Average:__ Changing all instances of `owner_id` to be `user_id`.
@@ -52,7 +52,7 @@ Why is this the best way to do it? Because the rest of the app already is using 
 ### Problem 3
 _The user is not being associated with the cat!_
 
-####Solution
+#### Solution
 Principally the current user should be assigned to the cat but there are several solutions to this problem and there is a specific solution that you should look for.
 
 * __Worst:__ The hidden field in the cat form sets the user_id on the cat. This introduces a vulnerability in where a malicious user could assign a cat to someone else.
@@ -66,7 +66,7 @@ or something similar.
 ### Problem 4
 _A cat can be created without a name or description!_
 
-####Solution
+#### Solution
 Validation needs to be added to the cat model.
 
 * __Worst:__ Multi-line validations or hand-rolled validations:
@@ -90,7 +90,7 @@ _Right now the we are just displaying a cat's owner id and not the owner name! L
 #### Solution
 __THERE'S A CATCH!__ Even though we submitted a name in the sign up form current user doesn't have a name! Why? Because the authentication gem Devise needs to be configured correctly to allow for the name to be submitted. So this is a two part answer. The first part is testing how the interviewee can easily debug and find the answers (Google, Stackoverflow). The second part is how we are going to display the first name.
 
-####Solution: Part 1
+#### Solution: Part 1
 On the [devise gem github page](https://github.com/plataformatec/devise), halfway down the README, there is a simple answer for allowing the name to be passed in:
 
 ```ruby
@@ -105,7 +105,7 @@ class ApplicationController < ActionController::Base
 end
 ```
 
-####Solution: Part 2
+#### Solution: Part 2
 The next step is to display the owner's name. There are a couple answers.
 
 * __Average:__ calling `cat.owner.name` instead of `cat.owner.id`
@@ -116,7 +116,7 @@ The next step is to display the owner's name. There are a couple answers.
 ### Problem 6
 _Any user can edit or delete a cat! We should only allow the owners of cat to be able to edit or delete a cat record._
 
-####Solution
+#### Solution
 We need to ensure that the current user is the owner of the cat before allowing them to perform any action or see any link to edit or destroy a cat.
 
 * __Worst:__ Doing any inline logic within the view or in the controller actions to check that the current user is the cat owner: `if cat.owner_id == current_user.id`
@@ -142,7 +142,7 @@ We need to ensure that the current user is the owner of the cat before allowing 
 ### Problem 7
 _We need to have more than one type of pet!_ The client has discovered that the users have different types of pets that they want to add! We need to change the app so that we can support different types of pets.
 
-####Solution
+#### Solution
 The solution to this problem is varied just like the others.
 * __Worst:__ Doing anything that requires dropping the database or changing the cats table.
 * __Worst:__ Creating a new table for each type of pet.
@@ -156,7 +156,7 @@ The solution to this problem is varied just like the others.
 ### Problem 8
 _There needs to be multiple owners!_ The client has been told that a pet could have multiple owners! We need to allow a pet to have more than one owner and change the interface to allow for that to happen!
 
-####Solution
+#### Solution
 * __Average:__ Use the HABTM rails method to create a relationship between the pets and the owners.
 * __Good:__ Create a join model and use the `has_many .. through: ..` method since the join model can now be used to have other interesting bits of meta data such as when the person is added and who the primary owner might be.
 * __Best:__ Doing something similar to the above two solutions and then adding an autocomplete dropdown on the pet form that allows for multiple owners to be added to the pet. Then changing so that all the owner names appear on the index and show pages.
@@ -167,7 +167,7 @@ _There needs to be multiple owners!_ The client has been told that a pet could h
 ### Problem 9
 _We need owners to be able to upload multiple images for their pets!_
 
-####Solution
+#### Solution
 * __Worst:__ a file input is added to the form, and the file is manually associated or marshalled with a hand-rolled method.
 * __Good:__ Using a plugin like [paperclip](), [carrierwave]() or something similar.
 
